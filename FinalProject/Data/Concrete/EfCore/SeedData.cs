@@ -56,6 +56,7 @@ namespace FinalProject.Data.Concrete.EfCore
                         {
                             PostTitle = "asp .net core",
                             PostContent = "asp .net core bootcampi güzeldir.",
+                            PostImage="1.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
@@ -65,6 +66,7 @@ namespace FinalProject.Data.Concrete.EfCore
                         {
                             PostTitle = "Unity Game",
                             PostContent = "unity ile oyun yapımı güzeldir.",
+                            PostImage="2.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-8),
                             Tags = context.Tags.Take(4).ToList(),
@@ -74,6 +76,7 @@ namespace FinalProject.Data.Concrete.EfCore
                         {
                             PostTitle = "Php",
                             PostContent = "Php ile web sitesi yapımı",
+                            PostImage="3.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-5),
                             Tags = context.Tags.Take(2).ToList(),

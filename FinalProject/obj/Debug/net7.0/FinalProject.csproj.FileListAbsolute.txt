@@ -61,3 +61,7 @@
 /Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/obj/Debug/net7.0/FinalProject.pdb
 /Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/obj/Debug/net7.0/FinalProject.genruntimeconfig.cache
 /Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/obj/Debug/net7.0/ref/FinalProject.dll
+/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/obj/Debug/net7.0/FinalProject.RazorAssemblyInfo.cache
+/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/obj/Debug/net7.0/FinalProject.RazorAssemblyInfo.cs
+/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/bin/Debug/net7.0/libman.json
+/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/bin/Debug/net7.0/FinalProject.staticwebassets.runtime.json
