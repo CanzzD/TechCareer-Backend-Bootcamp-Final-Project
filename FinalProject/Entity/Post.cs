@@ -5,6 +5,7 @@ namespace FinalProject.Entity
         public int PostId { get; set; }
         public string? PostTitle { get; set; }
         public string? PostContent { get; set; }
+        public string? PostUrl { get; set; }
         public string? PostImage { get; set; }
         public DateTime PostPublishedOn { get; set; }
         public bool IsActive { get; set; }

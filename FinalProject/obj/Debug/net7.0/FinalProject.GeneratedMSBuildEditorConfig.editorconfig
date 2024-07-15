@@ -16,8 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/Views/Posts/details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUG9zdHMvZGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/Views/Posts/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUG9zdHMvaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/Views/Shared/Components/NewPosts/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvTmV3UG9zdHMvRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/Views/Shared/Components/TagsMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvVGFnc01lbnUvRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/Views/Shared/_Layout.cshtml]

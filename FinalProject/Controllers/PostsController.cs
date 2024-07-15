@@ -2,23 +2,32 @@ using FinalProject.Data.Abstract;
 using FinalProject.Data.Concrete.EfCore;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.Controllers{
-    public class PostsController:Controller{
+namespace FinalProject.Controllers
+{
+    public class PostsController : Controller
+    {
 
         private IPostRepository _postRepository;
-        private ITagRepository _tagRepository;
-        public PostsController(IPostRepository postRepository, ITagRepository tagRepository){
+        public PostsController(IPostRepository postRepository)
+        {
             _postRepository = postRepository;
-            _tagRepository = tagRepository;
+
         }
-        public IActionResult Index(){
+        public IActionResult Index()
+        {
             return View(
-                new PostViewModel{
+                new PostViewModel
+                {
                     Posts = _postRepository.Posts.ToList(),
-                    Tags = _tagRepository.Tags.ToList()
+
                 }
             );
+        }
+
+        public async Task<IActionResult> Details(string url){
+            return View(await _postRepository.Posts.FirstOrDefaultAsync(p=>p.PostUrl == url));
         }
     }
 }

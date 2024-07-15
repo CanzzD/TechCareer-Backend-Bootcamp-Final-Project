@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<SocialAppDbContext>(options=>{
+builder.Services.AddDbContext<SocialAppDbContext>(options =>
+{
     options.UseSqlite(builder.Configuration["ConnectionStrings:sql-connection"]);
 });
 
@@ -20,6 +21,15 @@ app.UseStaticFiles();
 
 SeedData.TestVerileriniDoldur(app);
 
-app.MapDefaultControllerRoute();
+app.MapControllerRoute(
+    name: "post-details",
+    pattern: "posts/{url}",
+    defaults: new { controller = "Posts", action = "Details" }
+);
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Posts}/{action=Index}/{id?}"
+);
 
 app.Run();

@@ -3,29 +3,88 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/style.css">
-    <title>menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Ecommerce Website</title>
 </head>
 
 <body>
-    <div class="hero">
-        <nav>
-            <h2 class="logo">Social <span>App</span></h2>
-            <ul>
-                <!--<li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>-->
-            </ul>
-            <button type="button">Login</button>
-        </nav>
-        <hr>
-    </div>
+    <div id="page" class="site">
+        <header>
+            <div class="header-top">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <ul class="flexitem main-links">
+                                <li><a href="">deneme</a></li>
+                                <li><a href="">deneme2</a></li>
+                                <li><a href="">deneme3</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem main-links">
+                                <li><a href="">Sign Up</a></li>
+                                <li><a href="">My Account</a></li>
+                                <li><a href="">English<span class="icon-small"><i
+                                                class="ri-arrow-down-s-line"></i></span></a>
+                                    <ul>
+                                        <li><a href="#">Turkish</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+
+            <div class="header-nav">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <a href="" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                        <div class="left flexitem">
+                            <div class="logo"><a href="#"><span class="circle">.Store</span></a></div>
+                            <nav class="mobile-hide">
+                            <ul class="flexitem second-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Women</a></li>
+                            </ul>
+                            </nav>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem second-links">
+                                <li class="mobile-hide"><a href="#">
+                                    <div class="icon-large"><i class="ri-heart-line"></i></div>
+                                    <div class="fly-item"><span class="item-number">0</span></div>
+                                </a></li>
+                                <li><a href="#" class="iscart">
+                                    <div class="icon-large">
+                                        <i class="ri-shopping-cart-line"></i>
+                                        <div class="fly-item"><span class="item-number">0</span></div>
+                                    </div>
+                                    <div class="icon-text">
+                                        <div class="min-text">Total</div>
+                                        <div class="cart-total">$0.00</div>
+                                    </div>
+                                </a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </header>
+    <main></main>
+    <footer></footer>
+
+    </div>
+    <script src="script.js"></script>
     <div class="container mt-3">
         @RenderBody()
     </div>

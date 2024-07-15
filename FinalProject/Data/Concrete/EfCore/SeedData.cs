@@ -18,11 +18,11 @@ namespace FinalProject.Data.Concrete.EfCore
                 if (!context.Tags.Any())
                 {
                     context.Tags.AddRange(
-                        new Entity.Tag { TagText = "Teknoloji" },
-                        new Entity.Tag { TagText = "Yapay Zeka" },
-                        new Entity.Tag { TagText = "Tatil" },
-                        new Entity.Tag { TagText = "Yemek" },
-                        new Entity.Tag { TagText = "Oyun" }
+                        new Entity.Tag { TagText = "Teknoloji", TagUrl = "Teknoloji" },
+                        new Entity.Tag { TagText = "Yapay Zeka", TagUrl = "Yapay Zeka" },
+                        new Entity.Tag { TagText = "Tatil", TagUrl = "Tatil" },
+                        new Entity.Tag { TagText = "Yemek", TagUrl = "Yemek" },
+                        new Entity.Tag { TagText = "Oyun", TagUrl = "Oyun" }
                     );
                     context.SaveChanges();
                 }
@@ -56,7 +56,8 @@ namespace FinalProject.Data.Concrete.EfCore
                         {
                             PostTitle = "asp .net core",
                             PostContent = "asp .net core bootcampi güzeldir.",
-                            PostImage="1.png",
+                            PostUrl="asp-netcore",
+                            PostImage = "1.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
@@ -66,7 +67,8 @@ namespace FinalProject.Data.Concrete.EfCore
                         {
                             PostTitle = "Unity Game",
                             PostContent = "unity ile oyun yapımı güzeldir.",
-                            PostImage="2.png",
+                            PostUrl="unity-game",
+                            PostImage = "2.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-8),
                             Tags = context.Tags.Take(4).ToList(),
@@ -74,9 +76,10 @@ namespace FinalProject.Data.Concrete.EfCore
                         },
                         new Entity.Post
                         {
-                            PostTitle = "Php",
+                            PostTitle = "Php Bootcamp",
                             PostContent = "Php ile web sitesi yapımı",
-                            PostImage="3.png",
+                            PostUrl="php-bootcamp",
+                            PostImage = "3.png",
                             IsActive = true,
                             PostPublishedOn = DateTime.Now.AddDays(-5),
                             Tags = context.Tags.Take(2).ToList(),
