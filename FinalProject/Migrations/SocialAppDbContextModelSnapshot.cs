@@ -17,6 +17,38 @@ namespace FinalProject.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
 
+            modelBuilder.Entity("CategoryProduct", b =>
+                {
+                    b.Property<int>("CategoriesCategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductsProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CategoriesCategoryId", "ProductsProductId");
+
+                    b.HasIndex("ProductsProductId");
+
+                    b.ToTable("CategoryProduct");
+                });
+
+            modelBuilder.Entity("FinalProject.Entity.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CategoryUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("FinalProject.Entity.Comment", b =>
                 {
                     b.Property<int>("CommentId")
@@ -32,12 +64,15 @@ namespace FinalProject.Migrations
                     b.Property<int>("PostId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CommentId");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
@@ -99,7 +134,7 @@ namespace FinalProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PostId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")
@@ -107,62 +142,51 @@ namespace FinalProject.Migrations
 
                     b.HasKey("LikeId");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Likes");
                 });
 
-            modelBuilder.Entity("FinalProject.Entity.Post", b =>
+            modelBuilder.Entity("FinalProject.Entity.Product", b =>
                 {
-                    b.Property<int>("PostId")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PostContent")
+                    b.Property<string>("ProductCategory")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PostImage")
+                    b.Property<string>("ProductDescription")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("PostPublishedOn")
+                    b.Property<int>("ProductPrice")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ProductPublishedOn")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PostTitle")
+                    b.Property<string>("ProductTitle")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PostUrl")
+                    b.Property<string>("ProductUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PostId");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("FinalProject.Entity.Tag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("TagText")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TagUrl")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("TagId");
-
-                    b.ToTable("Tags");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("FinalProject.Entity.User", b =>
@@ -174,13 +198,16 @@ namespace FinalProject.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UserImage")
+                    b.Property<string>("Surname")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("UserImage")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
@@ -188,26 +215,26 @@ namespace FinalProject.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("PostTag", b =>
+            modelBuilder.Entity("CategoryProduct", b =>
                 {
-                    b.Property<int>("PostsPostId")
-                        .HasColumnType("INTEGER");
+                    b.HasOne("FinalProject.Entity.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("TagsTagId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("PostsPostId", "TagsTagId");
-
-                    b.HasIndex("TagsTagId");
-
-                    b.ToTable("PostTag");
+                    b.HasOne("FinalProject.Entity.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FinalProject.Entity.Comment", b =>
                 {
-                    b.HasOne("FinalProject.Entity.Post", "Post")
+                    b.HasOne("FinalProject.Entity.Product", "Product")
                         .WithMany("Comments")
-                        .HasForeignKey("PostId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -217,7 +244,7 @@ namespace FinalProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Post");
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
@@ -254,9 +281,9 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Entity.Like", b =>
                 {
-                    b.HasOne("FinalProject.Entity.Post", "Post")
+                    b.HasOne("FinalProject.Entity.Product", "Product")
                         .WithMany("Likes")
-                        .HasForeignKey("PostId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -266,35 +293,20 @@ namespace FinalProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Post");
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FinalProject.Entity.Post", b =>
+            modelBuilder.Entity("FinalProject.Entity.Product", b =>
                 {
                     b.HasOne("FinalProject.Entity.User", "User")
-                        .WithMany("Posts")
+                        .WithMany("Products")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PostTag", b =>
-                {
-                    b.HasOne("FinalProject.Entity.Post", null)
-                        .WithMany()
-                        .HasForeignKey("PostsPostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FinalProject.Entity.Tag", null)
-                        .WithMany()
-                        .HasForeignKey("TagsTagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("FinalProject.Entity.Event", b =>
@@ -302,7 +314,7 @@ namespace FinalProject.Migrations
                     b.Navigation("Participants");
                 });
 
-            modelBuilder.Entity("FinalProject.Entity.Post", b =>
+            modelBuilder.Entity("FinalProject.Entity.Product", b =>
                 {
                     b.Navigation("Comments");
 
@@ -315,7 +327,7 @@ namespace FinalProject.Migrations
 
                     b.Navigation("Events");
 
-                    b.Navigation("Posts");
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

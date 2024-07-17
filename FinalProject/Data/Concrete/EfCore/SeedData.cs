@@ -15,23 +15,23 @@ namespace FinalProject.Data.Concrete.EfCore
                 {
                     context.Database.Migrate();
                 }
-                if (!context.Tags.Any())
+                if (!context.Categories.Any())
                 {
-                    context.Tags.AddRange(
-                        new Entity.Tag { TagText = "Teknoloji", TagUrl = "Teknoloji" },
-                        new Entity.Tag { TagText = "Yapay Zeka", TagUrl = "Yapay Zeka" },
-                        new Entity.Tag { TagText = "Tatil", TagUrl = "Tatil" },
-                        new Entity.Tag { TagText = "Yemek", TagUrl = "Yemek" },
-                        new Entity.Tag { TagText = "Oyun", TagUrl = "Oyun" }
+                    context.Categories.AddRange(
+                        new Entity.Category { CategoryName = "Teknoloji", CategoryUrl = "Teknoloji" },
+                        new Entity.Category { CategoryName = "Erkek Giyim", CategoryUrl = "Erkek Giyim" },
+                        new Entity.Category { CategoryName = "Kadın Giyim", CategoryUrl = "Kadın Giyim" },
+                        new Entity.Category { CategoryName = "Mutfak", CategoryUrl = "Mutfak" },
+                        new Entity.Category { CategoryName = "Tatil", CategoryUrl = "Tatil" }
                     );
                     context.SaveChanges();
                 }
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new Entity.User { UserName = "emreasik" },
-                        new Entity.User { UserName = "onurcelik" },
-                        new Entity.User { UserName = "canozdemir" }
+                        new Entity.User { Name = "Emre",Surname="Aşık" },
+                        new Entity.User { Name = "Onur",Surname="Çelik" },
+                        new Entity.User { Name = "Can",Surname="Özdemir"}
                     );
                     context.SaveChanges();
                 }
@@ -49,41 +49,44 @@ namespace FinalProject.Data.Concrete.EfCore
                     );
                     context.SaveChanges();
                 }
-                if (!context.Posts.Any())
+                if (!context.Products.Any())
                 {
-                    context.Posts.AddRange(
-                        new Entity.Post
+                    context.Products.AddRange(
+                        new Entity.Product
                         {
-                            PostTitle = "asp .net core",
-                            PostContent = "asp .net core bootcampi güzeldir.",
-                            PostUrl="asp-netcore",
-                            PostImage = "1.png",
+                            ProductTitle = "İphone 15 Pro Max",
+                            ProductDescription = "İphone 15 Pro Max 256Gb 6 aylık cihaz sorunsuz.",
+                            ProductPrice = 50000,
+                            ProductUrl="iphone-15",
+                            Image = "1.jpg",
                             IsActive = true,
-                            PostPublishedOn = DateTime.Now.AddDays(-10),
-                            Tags = context.Tags.Take(3).ToList(),
+                            ProductPublishedOn = DateTime.Now.AddDays(-10),
+                            Categories = context.Categories.Take(1).ToList(),
                             UserId = 1
                         },
-                        new Entity.Post
+                        new Entity.Product
                         {
-                            PostTitle = "Unity Game",
-                            PostContent = "unity ile oyun yapımı güzeldir.",
-                            PostUrl="unity-game",
-                            PostImage = "2.png",
+                            ProductTitle = "Kadın Kaban",
+                            ProductDescription = "Kadın Kaban Kalın Kışlık ürün.",
+                            ProductPrice = 50000,
+                            ProductUrl="kadın-kaban",
+                            Image = "2.jpg",
                             IsActive = true,
-                            PostPublishedOn = DateTime.Now.AddDays(-8),
-                            Tags = context.Tags.Take(4).ToList(),
-                            UserId = 2
+                            ProductPublishedOn = DateTime.Now.AddDays(-5),
+                            Categories = context.Categories.Take(2).ToList(),
+                            UserId = 1
                         },
-                        new Entity.Post
+                        new Entity.Product
                         {
-                            PostTitle = "Php Bootcamp",
-                            PostContent = "Php ile web sitesi yapımı",
-                            PostUrl="php-bootcamp",
-                            PostImage = "3.png",
+                            ProductTitle = "Erkek Ayakkabı",
+                            ProductDescription = "42 numara erkek ayakkabı",
+                            ProductPrice = 50000,
+                            ProductUrl="erkek-ayakkabı",
+                            Image = "3.jpeg",
                             IsActive = true,
-                            PostPublishedOn = DateTime.Now.AddDays(-5),
-                            Tags = context.Tags.Take(2).ToList(),
-                            UserId = 3
+                            ProductPublishedOn = DateTime.Now.AddDays(-10),
+                            Categories = context.Categories.Take(3).ToList(),
+                            UserId = 1
                         }
                     );
                     context.SaveChanges();

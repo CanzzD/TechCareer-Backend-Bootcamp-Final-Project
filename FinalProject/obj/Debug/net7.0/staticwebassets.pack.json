@@ -5,20 +5,68 @@
       "PackagePath": "staticwebassets/css/style.css"
     },
     {
-      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/1.png",
-      "PackagePath": "staticwebassets/img/1.png"
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/1.jpg",
+      "PackagePath": "staticwebassets/img/1.jpg"
     },
     {
-      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/2.png",
-      "PackagePath": "staticwebassets/img/2.png"
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/1b8fab6c-dcdf-402d-8edb-21d549fe0131.jpeg",
+      "PackagePath": "staticwebassets/img/1b8fab6c-dcdf-402d-8edb-21d549fe0131.jpeg"
     },
     {
-      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/3.png",
-      "PackagePath": "staticwebassets/img/3.png"
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/2.jpg",
+      "PackagePath": "staticwebassets/img/2.jpg"
     },
     {
-      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/background-image.jpg",
-      "PackagePath": "staticwebassets/img/background-image.jpg"
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/266dcfc3-b702-40fe-9065-466c89233382.jpeg",
+      "PackagePath": "staticwebassets/img/266dcfc3-b702-40fe-9065-466c89233382.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/3.jpeg",
+      "PackagePath": "staticwebassets/img/3.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/4d7caa8d-9bd9-48dc-a780-8c10f6978215.jpg",
+      "PackagePath": "staticwebassets/img/4d7caa8d-9bd9-48dc-a780-8c10f6978215.jpg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/7298d075-f9c3-4bb4-8766-5eb3188ab0ef.jpeg",
+      "PackagePath": "staticwebassets/img/7298d075-f9c3-4bb4-8766-5eb3188ab0ef.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/9dce83ca-92d2-41ba-b67d-4a766f7ed378.jpeg",
+      "PackagePath": "staticwebassets/img/9dce83ca-92d2-41ba-b67d-4a766f7ed378.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/avatar.jpg",
+      "PackagePath": "staticwebassets/img/avatar.jpg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/b567ee81-f1ce-4979-a85e-2c41e4186271.jpeg",
+      "PackagePath": "staticwebassets/img/b567ee81-f1ce-4979-a85e-2c41e4186271.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/baaa8b3b-cb58-46bb-b890-13ac54a3e0e1.jpeg",
+      "PackagePath": "staticwebassets/img/baaa8b3b-cb58-46bb-b890-13ac54a3e0e1.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/c42f8d82-b77a-4391-ab37-89893f4abea3.jpeg",
+      "PackagePath": "staticwebassets/img/c42f8d82-b77a-4391-ab37-89893f4abea3.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/d0ab2831-14fb-4932-9866-65f39c032855.jpeg",
+      "PackagePath": "staticwebassets/img/d0ab2831-14fb-4932-9866-65f39c032855.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/d4cc3973-b278-4bca-a6f4-10e8f34a7084.jpeg",
+      "PackagePath": "staticwebassets/img/d4cc3973-b278-4bca-a6f4-10e8f34a7084.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/d729baee-bc2b-46a5-a322-b2e8f692733c.jpeg",
+      "PackagePath": "staticwebassets/img/d729baee-bc2b-46a5-a322-b2e8f692733c.jpeg"
+    },
+    {
+      "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/f257ecb7-f061-402a-9d31-a615579c8302.jpg",
+      "PackagePath": "staticwebassets/img/f257ecb7-f061-402a-9d31-a615579c8302.jpg"
     },
     {
       "Id": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/lib/bootstrap-icons/bootstrap-icons.svg",

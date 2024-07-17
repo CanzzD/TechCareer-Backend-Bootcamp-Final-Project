@@ -6,7 +6,7 @@ namespace FinalProject.Entity
         public string? CommentText { get; set; }
         public DateTime CommentPublishedOn { get; set; }
         public int PostId { get; set; }
-        public Post Post { get; set; } = null!;
+        public Product Product { get; set; } = null!;
         public int UserId { get; set; }
         public User User { get; set; } = null!;
     }

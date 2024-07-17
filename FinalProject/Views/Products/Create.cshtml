@@ -1,0 +1,49 @@
+@model ProductCreateViewModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+
+            <h1>Ürün Bilgileri</h1>
+            <form asp-action="Create" asp-controller="Products" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="ProductTitle" class="form-label"></label>
+                    <input asp-for="ProductTitle" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ProductUrl" class="form-label"></label>
+                    <input asp-for="ProductUrl" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ProductCategory" class="form-label"></label>
+                    <input asp-for="ProductCategory" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ProductPrice" class="form-label"></label>
+                    <input asp-for="ProductPrice" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ProductDescription" class="form-label"></label>
+                    <textarea asp-for="ProductDescription" class="form-control"></textarea>
+                </div>
+                <div class="image-group mb-3">
+                    <input type="file" name="imageFile" id="imageFile" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.2.1/tinymce.min.js"
+        integrity="sha512-zmlLhIesl+uwwzjoUz/izUsSjAMVb/7fH2ffCbJvYLepAvdvAq1T6ev9edZR8jwRKfM0OTaUyFVO1D7wAwXCEw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#Content'
+        });
+    </script>
+}

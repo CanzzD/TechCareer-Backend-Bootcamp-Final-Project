@@ -1,0 +1,17 @@
+@model List<Category>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Categories</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-inline d-flex flex-wrap gap-2">
+            @foreach (var category in Model)
+            {
+                <li class="list-inline-item">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">@category.CategoryName</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

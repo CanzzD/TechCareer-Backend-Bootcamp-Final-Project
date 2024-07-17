@@ -1,0 +1,20 @@
+@model Product
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4">@Model.ProductTitle</h1>
+            <div class="categories">
+                <a href="#" class="badge bg-primary bg-opacity-5 text-white mb-2 fw-bold">Teknoloji</a>
+                <a href="#" class="badge bg-danger bg-opacity-5 text-white mb-2 fw-bold">Seyehat</a>
+            </div>
+            <img src="~/img/@Model.Image" class="img-fluid rounded" alt="">
+            <p>@Model.ProductDescription</p>
+        </div>
+
+    </div>
+    <div class="col-lg-4">
+        <vc:categories-menu></vc:categories-menu>
+        <vc:new-products></vc:new-products>
+    </div>
+</div>
