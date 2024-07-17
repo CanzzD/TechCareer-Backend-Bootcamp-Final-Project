@@ -8,8 +8,8 @@
             <form asp-action="Create" asp-controller="Products" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
-                    <label asp-for="ProductTitle" class="form-label"></label>
-                    <input asp-for="ProductTitle" class="form-control">
+                    <label asp-for="ProductName" class="form-label"></label>
+                    <input asp-for="ProductName" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label asp-for="ProductUrl" class="form-label"></label>
@@ -22,6 +22,10 @@
                 <div class="mb-3">
                     <label asp-for="ProductPrice" class="form-label"></label>
                     <input asp-for="ProductPrice" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StockQuantity" class="form-label"></label>
+                    <input asp-for="StockQuantity" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label asp-for="ProductDescription" class="form-label"></label>

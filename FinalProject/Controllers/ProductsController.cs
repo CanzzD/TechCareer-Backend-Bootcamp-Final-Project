@@ -81,15 +81,14 @@ namespace FinalProject.Controllers
         _productRepository.CreateProduct(
             new Product
             {
-                ProductTitle = model.ProductTitle,
+                ProductName = model.ProductName,
                 ProductCategory = model.ProductCategory,
                 ProductDescription = model.ProductDescription,
                 ProductPrice = model.ProductPrice,
                 ProductUrl = model.ProductUrl,
-                UserId = int.Parse(userId ?? ""),
-                ProductPublishedOn = DateTime.Now,
+                SellerId = int.Parse(userId ?? ""),
+                StockQuantity = model.StockQuantity,
                 Image = model.Image ?? "avatar.jpg",
-                IsActive = false
             });
 
         return RedirectToAction("Index");

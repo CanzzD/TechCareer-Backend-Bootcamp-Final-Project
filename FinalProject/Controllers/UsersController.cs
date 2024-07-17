@@ -40,7 +40,6 @@ namespace FinalProject.Controllers
                         Surname = model.Surname,
                         Email = model.Email,
                         Password = model.Password,
-                        UserImage = "avatar.jpg"
                     });
                     return RedirectToAction("Login");
                 }else{
@@ -68,7 +67,6 @@ namespace FinalProject.Controllers
                     userClaims.Add(new Claim(ClaimTypes.NameIdentifier, isUser.UserId.ToString()));
                     userClaims.Add(new Claim(ClaimTypes.Name, isUser.Name ?? ""));
                     userClaims.Add(new Claim(ClaimTypes.GivenName, isUser.Surname ?? ""));
-                    userClaims.Add(new Claim(ClaimTypes.UserData, isUser.UserImage ?? ""));
 
                     if(isUser.Email == "info@ahmetkaya.com"){
                         userClaims.Add(new Claim(ClaimTypes.Role, "admin"));
@@ -103,9 +101,7 @@ namespace FinalProject.Controllers
             }
             var user = _userRepository
                        .Users
-                       .Include(x=>x.Products)
-                       .Include(x=>x.Comments)
-                       .ThenInclude(x=>x.Product)
+                       .Include(x=>x.Orders)
                        .FirstOrDefault(x=>x.Name == username);
 
             if(user == null){

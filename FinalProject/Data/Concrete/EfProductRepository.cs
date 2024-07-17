@@ -26,11 +26,11 @@ namespace FinalProject.Data.Concrete
             var entity = _context.Products.FirstOrDefault(i=>i.ProductId == product.ProductId);
 
             if(entity != null){
-                entity.ProductTitle = product.ProductTitle;
+                entity.ProductName = product.ProductName;
                 entity.ProductDescription = product.ProductDescription;
                 entity.ProductCategory = product.ProductCategory;
                 entity.ProductUrl = product.ProductUrl;
-                entity.IsActive = product.IsActive;
+                entity.StockQuantity = product.StockQuantity;
 
                 _context.SaveChanges();
             }
@@ -41,14 +41,14 @@ namespace FinalProject.Data.Concrete
             var entity = _context.Products.Include(x=>x.Categories).FirstOrDefault(i=>i.ProductId == product.ProductId);
 
             if(entity != null){
-                entity.ProductTitle = product.ProductTitle;
+                entity.ProductName = product.ProductName;
                 entity.ProductDescription = product.ProductDescription;
                 entity.ProductPrice = product.ProductPrice;
                 entity.ProductCategory = product.ProductCategory;
                 entity.ProductUrl = product.ProductUrl;
-                entity.IsActive = product.IsActive;
+                entity.StockQuantity = product.StockQuantity;
 
-                entity.Categories = _context.Categories.Where(tag=>categoryIds.Contains(tag.CategoryId)).ToList();
+                entity.Categories = _context.Categories.Where(category=>categoryIds.Contains(category.CategoryId)).ToList();
 
                 _context.SaveChanges();
             }

@@ -9,7 +9,7 @@ namespace FinalProject.Models
 
         [Required]
         [Display(Name ="Ürün Adı")]
-        public string? ProductTitle {get;set;}
+        public string? ProductName {get;set;}
 
         [Required]
         [Display(Name ="Ürün Kategorisi")]
@@ -29,7 +29,7 @@ namespace FinalProject.Models
         [Display(Name ="Url")]
         public string? ProductUrl {get;set;}
 
-        public bool IsActive{get;set;}
+        public int StockQuantity { get; set; }
 
         public List<Category>Categories{get;set;}= new();
 

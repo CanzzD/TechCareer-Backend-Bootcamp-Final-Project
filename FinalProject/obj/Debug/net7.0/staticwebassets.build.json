@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RWw2AxlLdwqNVY6Zmnxv9zAm8s+mMcBKJotEq0T7M8w=",
+  "Hash": "+sYzqLZElc1i7ghAs/4ldtVa5CHlYKUaLpPL7QpgVms=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/1b8fab6c-dcdf-402d-8edb-21d549fe0131.jpeg"
+    },
+    {
+      "Identity": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/1e889abb-3ee1-46f7-9595-9184ef5130d8.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "img/1e889abb-3ee1-46f7-9595-9184ef5130d8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/1e889abb-3ee1-46f7-9595-9184ef5130d8.jpg"
     },
     {
       "Identity": "/Users/canozdemir/Desktop/Backend Bootcamp Final Project/FinalProject/wwwroot/img/2.jpg",

@@ -12,7 +12,6 @@ namespace FinalProject.ViewComponents{
         public async Task<IViewComponentResult> InvokeAsync(){
             return View(await _productRepository
             .Products
-            .OrderByDescending(p=>p.ProductPublishedOn)
             .Take(5)
             .ToListAsync());
         }
