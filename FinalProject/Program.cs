@@ -13,6 +13,7 @@ builder.Services.AddDbContext<SocialAppDbContext>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:sql-connection"]);
 });
 
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 builder.Services.AddScoped<IProductRepository, EfProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EfCategoryRepository>();
 builder.Services.AddScoped<IUserRepository, EfUserRepository>();
@@ -38,7 +39,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "products_by_category",
-    pattern: "products/category/{tag}",
+    pattern: "products/category/{category}",
     defaults: new{controller = "Products", action = "Index"}
 );
 app.MapControllerRoute(

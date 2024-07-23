@@ -44,6 +44,9 @@ namespace FinalProject.Migrations
                     b.Property<string>("CategoryUrl")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Color")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -60,9 +63,6 @@ namespace FinalProject.Migrations
 
                     b.Property<string>("CommentText")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("PostId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
@@ -204,10 +204,10 @@ namespace FinalProject.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Surname")
+                    b.Property<string>("UserImage")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UserImage")
+                    b.Property<string>("UserName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId");

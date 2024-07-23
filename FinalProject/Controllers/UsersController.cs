@@ -33,11 +33,11 @@ namespace FinalProject.Controllers
 
             if(ModelState.IsValid){
 
-                var user = await _userRepository.Users.FirstOrDefaultAsync(x=>x.Name == model.Name || x.Email == model.Email);
+                var user = await _userRepository.Users.FirstOrDefaultAsync(x=>x.UserName == model.UserName || x.Email == model.Email);
                 if(user == null){
                     _userRepository.CreateUser(new Entity.User{
+                        UserName = model.UserName,
                         Name = model.Name,
-                        Surname = model.Surname,
                         Email = model.Email,
                         Password = model.Password,
                         UserImage = "avatar.jpg"
@@ -66,8 +66,8 @@ namespace FinalProject.Controllers
                     var userClaims = new List<Claim>();
 
                     userClaims.Add(new Claim(ClaimTypes.NameIdentifier, isUser.UserId.ToString()));
-                    userClaims.Add(new Claim(ClaimTypes.Name, isUser.Name ?? ""));
-                    userClaims.Add(new Claim(ClaimTypes.GivenName, isUser.Surname ?? ""));
+                    userClaims.Add(new Claim(ClaimTypes.Name, isUser.UserName ?? ""));
+                    userClaims.Add(new Claim(ClaimTypes.GivenName, isUser.Name ?? ""));
                     userClaims.Add(new Claim(ClaimTypes.UserData, isUser.UserImage ?? ""));
 
                     if(isUser.Email == "info@ahmetkaya.com"){
@@ -106,7 +106,7 @@ namespace FinalProject.Controllers
                        .Include(x=>x.Products)
                        .Include(x=>x.Comments)
                        .ThenInclude(x=>x.Product)
-                       .FirstOrDefault(x=>x.Name == username);
+                       .FirstOrDefault(x=>x.UserName == username);
 
             if(user == null){
                 return NotFound();

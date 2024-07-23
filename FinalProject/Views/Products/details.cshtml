@@ -1,20 +1,108 @@
 @model Product
 
-<div class="row">
-    <div class="col-lg-8">
-        <div class="bg-white p-4">
-            <h1 class="h4 mb-4">@Model.ProductTitle</h1>
-            <div class="categories">
-                <a href="#" class="badge bg-primary bg-opacity-5 text-white mb-2 fw-bold">Teknoloji</a>
-                <a href="#" class="badge bg-danger bg-opacity-5 text-white mb-2 fw-bold">Seyehat</a>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="bg-white p-4">
+                <h1 class="h4 mb-4">@Model.ProductTitle</h1>
+                <div class="tags">
+                    @foreach(var category in Model.Categories){
+                        <a href="/products/category/@category.CategoryUrl" class="badge bg-@category.Color bg-opacity-5 text-white mb-2 fw-bold">@category.CategoryName</a>
+                    }
+                </div>
+                 <img src="~/img/@Model.Image" class="img-fluid rounded" alt="">
+                 <ul class="list-inline my-3">
+                    <li class="list-inline-item"><i class="bi bi-calendar"></i>@Model.ProductPublishedOn.ToString("d")</li>
+                    <li class="list-inline-item"><i class="bi bi-person-circle"></i><a href="/profile/@User.Identity.Name">@User.Identity.Name</a></li>
+                 </ul>
+                 <hr class="py-3">
+                 <div>@Html.Raw(@Model.ProductDescription)</div>
             </div>
-            <img src="~/img/@Model.Image" class="img-fluid rounded" alt="">
-            <p>@Model.ProductDescription</p>
+            <div class="bg-white mt-3">
+                <div class="card border-0">
+                    <div class="card-header pb-0">
+                        <h4><span id="commentCount">@Model.Comments.Count()</span> adet yorum var.</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="comment">
+                        @foreach(var comment in Model.Comments){
+                        <div class="my-4 d-flex">
+                            <img src="~/img/@comment.User.UserImage" alt="" class="avatar rounded-circle float-start me-3">
+                            <div>
+                            <div class="mb-2 d-flex">
+                                <h6 class="me-2"><a href="/profile/@comment.User.UserName">@comment.User.Name</a></h6>
+                                <span>@comment.CommentPublishedOn.ToString("G")</span>
+                            </div>
+                            <p>@comment.CommentText</p>
+                            </div>
+                        </div>
+                        }
+                        </div>
+                        @if(User.Identity!.IsAuthenticated){
+                            <hr class="my-4">
+                            <div>
+                            <h4 class="mb-3">Yorum Ekle</h4>
+                        <form action="/products/AddComment" method="post">
+                            <input type="hidden" id="ProductId" name="ProductId" value="@Model.ProductId">
+                            <div class="mb-3">
+                                <label for="CommentText" class="form-label">Yorum</label>
+                                <textarea type="text" name="CommentText" id="CommentText" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" id="btnYorumKayit" class="btn btn-secondary">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                        }else{
+                        <p>Yorum yapabilmek için giriş yapmalısınız. <a href="/users/login">Login</a></p>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-lg-4">
+            <vc:tags-menu></vc:tags-menu>
+            <vc:new-posts></vc:new-posts>
+        </div>
+    </div>
+    
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btnYorumKayit").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddComment")',
+                    dataType: 'json',
+                    data:{
+                        ProductId: $('#ProductId').val(),
+                        UserName: $('#UserName').val(),
+                        CommentText: $('#CommentText').val(),
+                    },
+                    success: function(yorum){
+                        var date = new Date(yorum.CommentPublishedOn);
 
-    </div>
-    <div class="col-lg-4">
-        <vc:categories-menu></vc:categories-menu>
-        <vc:new-products></vc:new-products>
-    </div>
-</div>
+                        $("#comment").append(`
+                        <div class="my-4 d-flex">
+                            <img src="~/img/${yorum.Image}" alt="" class="avatar rounded-circle float-start me-3">
+                            <div>
+                            <div class="mb-2 d-flex">
+                                <h6 class="me-2">${yorum.username}</h6>
+                                <span>${date.toLocaleDateString()}</span>
+                            </div>
+                            <p>${yorum.CommentText}</p>
+                            </div>
+                        </div>
+                        `);
+                        $("#UserName").val('');
+                        $("#CommentText").val('');
+
+                        var adet = parseInt($("#commentCount").text());
+                        $("#commentCount").text(adet+1);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}

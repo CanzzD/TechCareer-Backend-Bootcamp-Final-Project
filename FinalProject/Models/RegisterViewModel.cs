@@ -5,12 +5,12 @@ namespace FinalProject.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Name")]
-        public string? Name { get; set; }
+        [Display(Name = "UserName")]
+        public string? UserName { get; set; }
 
         [Required]
-        [Display(Name = "Surname")]
-        public string? Surname { get; set; }
+        [Display(Name = "İsim")]
+        public string? Name { get; set; }
 
         [Required]
         [EmailAddress]

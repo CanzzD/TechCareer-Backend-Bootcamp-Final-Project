@@ -1,97 +1,76 @@
+using FinalProject.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.Data.Concrete.EfCore
-{
+namespace FinalProject.Data.Concrete.EfCore{
 
-    public static class SeedData
-    {
+    public static class SeedData{
 
-        public static void TestVerileriniDoldur(IApplicationBuilder app)
-        {
-            var context = app.ApplicationServices.CreateScope().ServiceProvider.GetService<SocialAppDbContext>();
-            if (context != null)
-            {
-                if (context.Database.GetPendingMigrations().Any())
-                {
-                    context.Database.Migrate();
-                }
-                if (!context.Categories.Any())
-                {
-                    context.Categories.AddRange(
-                        new Entity.Category { CategoryName = "Teknoloji", CategoryUrl = "Teknoloji" },
-                        new Entity.Category { CategoryName = "Erkek Giyim", CategoryUrl = "Erkek Giyim" },
-                        new Entity.Category { CategoryName = "Kadın Giyim", CategoryUrl = "Kadın Giyim" },
-                        new Entity.Category { CategoryName = "Mutfak", CategoryUrl = "Mutfak" },
-                        new Entity.Category { CategoryName = "Tatil", CategoryUrl = "Tatil" }
-                    );
-                    context.SaveChanges();
-                }
-                if (!context.Users.Any())
-                {
-                    context.Users.AddRange(
-                        new Entity.User { Name = "Emre",Surname="Aşık" },
-                        new Entity.User { Name = "Onur",Surname="Çelik" },
-                        new Entity.User { Name = "Can",Surname="Özdemir"}
-                    );
-                    context.SaveChanges();
-                }
-                if (!context.Events.Any())
-                {
-                    context.Events.AddRange(
-                        new Entity.Event
-                        {
-                            EventTitle = "Coffee Talk",
-                            EventDescription = "Coffee Talk With Onur Celik",
-                            StartTime = DateTime.Now.AddDays(-10),
-                            EndTime = DateTime.Now.AddDays(-5),
-                            OrganizerId = 1
+    public static void TestVerileriniDoldur(IApplicationBuilder app){
+        var context = app.ApplicationServices.CreateScope().ServiceProvider.GetService<SocialAppDbContext>();
+        if(context != null){
+            if(context.Database.GetPendingMigrations().Any()){
+                context.Database.Migrate();
+            }
+            if(!context.Categories.Any()){
+                context.Categories.AddRange(
+                    new Entity.Category{CategoryName = "web programlama",CategoryUrl = "web-programlama",Color = Entity.CategoryColors.primary},
+                    new Entity.Category{CategoryName = "backend",CategoryUrl = "backend", Color = Entity.CategoryColors.danger},
+                    new Entity.Category{CategoryName = "game",CategoryUrl = "game", Color=Entity.CategoryColors.warning},
+                    new Entity.Category{CategoryName = "fullstack",CategoryUrl = "full-stack", Color = Entity.CategoryColors.success},
+                    new Entity.Category{CategoryName = "php",CategoryUrl = "php", Color = Entity.CategoryColors.info}
+                );
+                context.SaveChanges();
+            }
+            if(!context.Users.Any()){
+                context.Users.AddRange(
+                    new Entity.User {UserName = "ahmetkaya", Name= "Ahmet Kaya",Email="info@ahmetkaya.com",Password="123456", UserImage = "1.jpg"},
+                    new Entity.User {UserName = "selinkarsli",Name= "Selin Karslı",Email="info@selinkarsli.com",Password="123456", UserImage = "1.jpg"}
+                );
+                context.SaveChanges();
+            }
+            if(!context.Products.Any()){
+                context.Products.AddRange(
+                    new Entity.Product{
+                        ProductTitle = "İphone 15 Pro Max Sıfır Ayarında",
+                        ProductDescription = "temiz kullanılmış 6 aylık 15 pro max.",
+                        ProductUrl = "iphone-15",
+                        ProductPrice=50000,
+                        IsActive = true,
+                        ProductPublishedOn = DateTime.Now.AddDays(-10),
+                        Categories = context.Categories.Take(3).ToList(),
+                        Image = "1.jpg",
+                        UserId = 1,
+                        Comments = new List<Entity.Comment>{
+                            new Entity.Comment {CommentText = "iyi bir bootcamp", CommentPublishedOn = DateTime.Now.AddDays(-20), UserId = 1},
+                            new Entity.Comment {CommentText = "tavsiye ederim", CommentPublishedOn = DateTime.Now.AddDays(-10), UserId = 2},
                         }
-                    );
-                    context.SaveChanges();
-                }
-                if (!context.Products.Any())
-                {
-                    context.Products.AddRange(
-                        new Entity.Product
-                        {
-                            ProductTitle = "İphone 15 Pro Max",
-                            ProductDescription = "İphone 15 Pro Max 256Gb 6 aylık cihaz sorunsuz.",
-                            ProductPrice = 50000,
-                            ProductUrl="iphone-15",
-                            Image = "1.jpg",
-                            IsActive = true,
-                            ProductPublishedOn = DateTime.Now.AddDays(-10),
-                            Categories = context.Categories.Take(1).ToList(),
-                            UserId = 1
-                        },
-                        new Entity.Product
-                        {
-                            ProductTitle = "Kadın Kaban",
-                            ProductDescription = "Kadın Kaban Kalın Kışlık ürün.",
-                            ProductPrice = 50000,
-                            ProductUrl="kadın-kaban",
-                            Image = "2.jpg",
-                            IsActive = true,
-                            ProductPublishedOn = DateTime.Now.AddDays(-5),
-                            Categories = context.Categories.Take(2).ToList(),
-                            UserId = 1
-                        },
-                        new Entity.Product
-                        {
-                            ProductTitle = "Erkek Ayakkabı",
-                            ProductDescription = "42 numara erkek ayakkabı",
-                            ProductPrice = 50000,
-                            ProductUrl="erkek-ayakkabı",
-                            Image = "3.jpeg",
-                            IsActive = true,
-                            ProductPublishedOn = DateTime.Now.AddDays(-10),
-                            Categories = context.Categories.Take(3).ToList(),
-                            UserId = 1
-                        }
-                    );
-                    context.SaveChanges();
-                }
+                    },
+                    new Entity.Product{
+                        ProductTitle = "Unity Game",
+                        ProductDescription = "unity ile oyun yapımı güzeldir. Bu bootcampte yenilikler öğreneceğiz.",
+                        ProductUrl = "unity-game",
+                        ProductPrice=780,
+                        IsActive = true,
+                        ProductPublishedOn = DateTime.Now.AddDays(-8),
+                        Categories = context.Categories.Take(4).ToList(),
+                        Image = "2.jpg",
+                        UserId = 1
+                    },
+                    new Entity.Product{
+                        ProductTitle = "Php Bootcamp",
+                         ProductDescription = "Php ile web sitesi yapımı. Bu bootcampte yenilikler öğreneceğiz.",
+                        ProductPrice = 500,
+                        ProductUrl = "php-bootcamp",
+                        IsActive = true,
+                        ProductPublishedOn = DateTime.Now.AddDays(-5),
+                        Categories = context.Categories.Take(2).ToList(),
+                        Image = "3.jpeg",
+                        UserId = 2
+                    }
+                );
+                context.SaveChanges();
             }
         }
     }
 }
+    }
